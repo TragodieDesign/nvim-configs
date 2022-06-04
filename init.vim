@@ -80,26 +80,31 @@ nmap <C-s> :w<CR>
 
 " " autocmd """"""""""
 " autocmds aqui
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+"autocmds aqui
 
 "NERDTree """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <C-w> :NERDTreeToggle <C-R>
+nmap <C-a> :NERDTreeToggle<C-R>
 "Ctrl+a para abrir o NERDTree e ver os diretŕios"
 "Sobre um diretŕio, recomendo usar o s para dar split num arquivo selecionado
 "pelo nerdtree
+" Adding an empty line below, above and below with insert
+"
+"
 " Shortcuts for split navigation
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-" Adding an empty line below, above and below with insert
+
+
 nmap op o<Esc>k
 nmap oi O<Esc>j
 nmap oo A<CR>
 " Create a tab
 nmap te :tabe<CR>
 
-2
-3
 " Navigate between buffers
 nmap ty :bn<CR>
 nmap tr :bp<CR>
@@ -130,7 +135,11 @@ let g:coc_global_extensions = [ 'coc-snippets', ]
 
 let g:coc_global_extensions = [ 'coc-explorer', ]
 
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
 
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 "Telescope
 if (has("nvim"))
     Plug 'nvim-lua/plenary.nvim'
@@ -243,3 +252,9 @@ function! s:check_back_space() abort
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+" Configurações do Vim IndentGuides
+
+let g:indentguides_spacechar = '▏'
+let g:indentguides_tabchar = '▏'
+
+" Fim das configurações do Vim IndentGuides
